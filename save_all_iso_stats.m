@@ -6,7 +6,7 @@ clc
 layer_of_interest = 8;
 center_statistic = 'median';
 statistics = struct();
-parfor intersections = 1:22
+for intersections = 1:22
     centers_path = ['../data/' int2str(intersections) '/'];
     fprintf('Intersection %d\n',intersections)
     statistics_intersection = save_intersection_iso_stats(centers_path,layer_of_interest,center_statistic);
