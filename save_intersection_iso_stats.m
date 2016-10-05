@@ -1,4 +1,4 @@
-function [ all_statistics ] = save_intersection_iso_stats( folder_path,layer_of_interest,center_statistic )
+function [ all_statistics ] = save_intersection_iso_stats( folder_path,center_statistic )
 %UNTITLED4 Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -26,7 +26,7 @@ all_statistics = struct();
 for image_id = 1:numFolder
     subFolder = subFolders(image_id);
     subFolderPath = [folder_path subFolder.name];
-    loaded_data = load(sprintf('%s/cloud_preprocessed_%d.mat',subFolderPath,layer_of_interest));
+    loaded_data = load(sprintf('%s/cloud_preprocessed.mat',subFolderPath));
     centers = loaded_data.centers.(center_statistic);
     statistics = get_iso_statistics(centers);
     all_fieldnames = fieldnames(statistics);
