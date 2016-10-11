@@ -26,4 +26,19 @@ for intersections = 1:22
         statistics.scene = [statistics.scene; ones(length(statistics_intersection.(all_fieldnames{1})),1)*intersections];
     end
 end
+statistics.category = zeros(size(statistics.scene));
+
+cat1= [1,2,6,16,17,20,21];
+cat2= [3,5,8,12,13,19,22];
+cat3= [7,9,10,11,14,15,18];
+scene2cat = 1:22;
+scene2cat(cat1) = 1;
+scene2cat(cat2) = 2;
+scene2cat(cat3) = 3;
+for scene=1:22
+    scene_idx = statistics.scene == scene;
+    cat = scene2cat(scene);
+    statistics.category(scene_idx) = cat;
+end
+
 save([data_path,'iso_statistics.mat'],'statistics')
