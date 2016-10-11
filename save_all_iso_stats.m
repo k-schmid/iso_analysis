@@ -26,4 +26,4 @@ for intersections = 1:22
         statistics.scene = [statistics.scene; ones(length(statistics_intersection.(all_fieldnames{1})),1)*intersections];
     end
 end
-save(sprintf('%s iso_statistics.mat',data_path),'statistics')
+save([data_path,'iso_statistics.mat'],'statistics')
