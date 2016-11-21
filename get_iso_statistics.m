@@ -11,7 +11,7 @@ stats.mean_radial = mean(radials);
 stats.stddev = std(radials);
 stats.max_radial = max(radials);
 stats.min_radial = min(radials);
-stats.dispersion = stats.mean_radial / stats.stddev;
+stats.dispersion = stats.mean_radial - stats.stddev;
 stats.circularity = (pi * stats.mean_radial^2) / stats.area ;
 stats.variance = sqrt(stats.stddev);
 
